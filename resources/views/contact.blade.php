@@ -11,7 +11,7 @@
 
 <!-- ページコンテンツ部 -->
 @section('content')
-<div class="content">
+<form action="" method="post" class="content">
   <!-- お名前 -->
   <div class="input-elm">
     <label for="lastName" class="asterisk">お名前</label>
@@ -85,8 +85,6 @@
   <div class="btn-wrap">
     <button>確認</button>
   </div>
-
-
-</div>
+</form>
 @endsection
 
