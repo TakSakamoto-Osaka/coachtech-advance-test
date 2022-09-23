@@ -51,12 +51,12 @@
   <!-- ご意見 -->
   <div class="confirm-elm">
     <label class="confirm">ご意見</label>
-    <div class="confirm-opinion">
+    <p class="confirm-opinion">
       いつもお世話になっております。先日、貴社製品を購入させていただ
       きました。この度、不具合が生じ、説明書に沿って操作を進めていま
       したが上手く行きませんでした。どのように直せば良いかご教授いた
       だきたいです。
-    </div>
+    </p>
   </div>
 
   <!-- 送信 -->

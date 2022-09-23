@@ -38,8 +38,7 @@ class ContactController extends Controller
      */
     public function thanks()
     {
-        $page_tiele = "Thanks!";
 
-        return "thanks";
+        return view('thanks');
     }
 }
