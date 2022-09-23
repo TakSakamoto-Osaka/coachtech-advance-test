@@ -9,6 +9,7 @@ h1.confirm {
 }
 
 /*  コンテンツ部  */
+div.content,
 form.content {
     width: 800px;
     margin: 50px auto;
@@ -126,5 +127,5 @@ span.postcode {
 .thanks {
     text-align: center;
     margin-top: 400px;
-    margin-bottom: 60px;
+    margin-bottom: 70px;
 }
