@@ -1,11 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
-|--------------------------------------------------------------------------
+|-------------------------------------------------------------------------R
 |
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
@@ -13,6 +15,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+//  お問い合わせ関連URL
+Route::prefix('contact')->group( function () {
+  Route::get('/',         [ContactController::class, 'contact']);     //  お問い合わせページ
+  Route::get('/confirm',  [ContactController::class, 'confirm']);     //  内容確認ページ
+  Route::get('/thanks',   [ContactController::class, 'thanks']);      //  Thanksページ
 });
+
+//  管理システム関連URL
+Route::prefix('admin')->group( function () {
+  Route::get('/',         [AdminController::class, 'admin']);         //  管理システムページ
+  Route::get('/reset',    [AdminController::class, 'reset']);         //  リセット
+  Route::get('/delete',   [AdminController::class, 'delete']);        //  削除
+});
+
+
