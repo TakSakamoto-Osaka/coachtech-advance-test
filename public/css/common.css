@@ -90,3 +90,10 @@ button {
     border-radius: 5px;
     border: 1px solid #222;
 }
+
+/*  アンカー  */
+a.block {
+    display: block;
+    margin-top: 10px;
+    color: #000;
+}

@@ -27,9 +27,8 @@ class ContactController extends Controller
      */
     public function confirm()
     {
-        $page_tiele = "内容確認";
 
-        return "confirm";
+        return view('confirm');
     }
     
     /**

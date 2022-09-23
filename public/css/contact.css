@@ -2,7 +2,8 @@
   お問い合わせ関連ページ CSS
 */
 
-h1.content {
+h1.content,
+h1.confirm {
     width: 800px;
     margin: 30px auto;
 }
@@ -23,14 +24,23 @@ h1.content {
     margin-top: 60px;
 }
 
+.confirm-elm:not(:first-of-type) {
+    margin-top: 60px;
+}
+
 /*  性別以外のラベル  */
-label:not(.gender):not(.male):not(.female) {
+label:not(.gender):not(.male):not(.female):not(.confirm) {
     margin-top: 15px;
 }
 
 /*  性別ラベル  */
 label.gender {
     margin-top: 15px;
+}
+
+/*  内容確認画面のラベル : margin-top設定を上書き  */
+label.confirm {
+    margin-top: 0;
 }
 
 /*  ラベルの必須入力米印  */
@@ -103,4 +113,11 @@ span.postcode {
     text-align: center;
     vertical-align: top;
     margin-top: 15px;
+}
+
+/*  内容確認画面のご意見  */
+.confirm-opinion {
+    display: inline-block;
+    width: 500px;
+    line-height: 150%;
 }
