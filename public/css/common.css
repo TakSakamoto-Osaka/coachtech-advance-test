@@ -54,7 +54,15 @@ label.female {
     border: 1px solid #000;
 }
 .gender-radio input[type="radio"] {
-    display: none;
+    /* 透明度0 */
+    filter: alpha(opacity=0);
+    -moz-opacity: 0;
+    opacity: 0;
+    /* ブラウザのデフォルトのスタイルを削除 */
+    -webkit-appearance: none;
+    appearance: none;
+    /* レイアウトから無視 */
+    position: absolute;
 }
 .gender-radio input[type="radio"]:checked + label:after {
     content: "";
