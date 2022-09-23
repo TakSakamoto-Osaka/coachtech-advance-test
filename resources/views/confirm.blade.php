@@ -5,6 +5,7 @@
 <link href="{{ asset('css/contact.css') }}" rel="stylesheet">
 @endsection
 
+<!-- 見出し -->
 @section('headline')
 <h1 class="confirm">内容確認</h1>
 @endsection
@@ -60,7 +61,7 @@
   </div>
 
   <!-- 送信 -->
-  <div class="btn-wrap">
+  <div class="btn-wrap btn-contact">
     <button>送信</button>
     <a href="" class="block">修正する</a>
   </div>

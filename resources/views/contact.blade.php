@@ -5,6 +5,7 @@
 <link href="{{ asset('css/contact.css') }}" rel="stylesheet">
 @endsection
 
+<!-- 見出し -->
 @section('headline')
 <h1 class="content">お問い合わせ</h1>
 @endsection
@@ -15,12 +16,12 @@
   <!-- お名前 -->
   <div class="input-elm">
     <label for="lastName" class="asterisk">お名前</label>
-    <div class="text-with-ex">
-      <input type="text" id="lastName" class="name">
+    <div class="inline-block">
+      <input type="text" id="lastName" class="name" name="lastname">
       <span class="example">例）山田</span>
     </div>
-    <div class="text-with-ex first-name">
-      <input type="text" id="firstName" class="name">
+    <div class="inline-block first-name">
+      <input type="text" id="firstName" class="name" name="firstname">
       <span class="example">例）太郎</span>
     </div>
   </div>
@@ -41,8 +42,8 @@
   <!-- メールアドレス -->
   <div class="input-elm">
     <label for="email" class="asterisk">メールアドレス</label>
-    <div class="text-with-ex">
-      <input type="email" id="email">
+    <div class="inline-block">
+      <input type="email" id="email" name="email">
       <span class="example">例）test@example.com</span>
     </div>
   </div>
@@ -51,8 +52,8 @@
   <div class="input-elm">
     <label for="postcode" class="asterisk">郵便番号</label>
     <span class="postcode">〒</span>
-    <div class="text-with-ex">
-      <input type="text" id="postcode" class="postcode">
+    <div class="inline-block">
+      <input type="text" id="postcode" class="postcode" name="postcode">
       <span class="example">例）123-4567</span>
     </div>
   </div>
@@ -60,8 +61,8 @@
   <!-- 住所 -->
   <div class="input-elm">
     <label for="address" class="asterisk">住所</label>
-    <div class="text-with-ex">
-      <input type="text" id="address">
+    <div class="inline-block">
+      <input type="text" id="address" name="address">
       <span class="example">例）東京都渋谷区千駄ヶ谷1-2-3</span>
     </div>
   </div>
@@ -69,8 +70,8 @@
   <!-- 建物名 -->
   <div class="input-elm">
     <label for="building">建物名</label>
-    <div class="text-with-ex">
-      <input type="text" id="building">
+    <div class="inline-block">
+      <input type="text" id="building" name="building">
       <span class="example">例）千駄ヶ谷マンション101</span>
     </div>
   </div>
@@ -78,11 +79,11 @@
   <!-- ご意見 -->
   <div class="input-elm">
     <label for="opinion" class="asterisk">ご意見</label>
-    <textarea id="opinion" rows="6" cols="60" class="opinion"></textarea>
+    <textarea id="opinion" rows="6" cols="60" class="opinion" name="opinion"></textarea>
   </div>
 
   <!-- 確認 -->
-  <div class="btn-wrap">
+  <div class="btn-wrap btn-contact">
     <button>確認</button>
   </div>
 </form>

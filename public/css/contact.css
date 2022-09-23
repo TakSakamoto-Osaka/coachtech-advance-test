@@ -29,11 +29,6 @@ form.content {
     margin-top: 60px;
 }
 
-/*  性別以外のラベル  */
-label:not(.gender):not(.male):not(.female):not(.confirm) {
-    margin-top: 15px;
-}
-
 /*  性別ラベル  */
 label.gender {
     margin-top: 15px;
@@ -48,11 +43,6 @@ label.confirm {
 .asterisk::after {
     content: " ※";
     color: red;
-}
-
-/*  入力例付きテキスト入力ボックス  */
-.text-with-ex {
-    display: inline-block;
 }
 
 /*  入力例  */
@@ -128,4 +118,9 @@ span.postcode {
     text-align: center;
     margin-top: 400px;
     margin-bottom: 70px;
+}
+
+/*  ボタン  */
+.btn-contact {
+    margin-top: 40px;
 }

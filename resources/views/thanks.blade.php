@@ -12,7 +12,7 @@
 <!-- トップページへ -->
 <div>
   <p class="thanks">ご意見いただきありがとうございました。</p>
-  <div class="btn-wrap">
+  <div class="btn-wrap btn-contact">
     <button>トップページへ</button>
   </div>
 

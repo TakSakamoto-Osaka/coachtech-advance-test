@@ -16,9 +16,8 @@ class AdminController extends Controller
      */
     public function admin()
     {
-        $page_tiele = "管理システム";
 
-        return "admin";
+        return view('admin');
     }
     
     /**

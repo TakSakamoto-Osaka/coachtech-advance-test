@@ -14,5 +14,9 @@
   <div class="content">
     @yield('content')
   </div>
+
+  <script>
+    @yield('script')
+  </script>
 </body>
 </html>
