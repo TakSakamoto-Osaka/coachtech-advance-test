@@ -3,13 +3,13 @@
 */
 
 h1.content {
-    width: 700px;
+    width: 800px;
     margin: 30px auto;
 }
 
 /*  コンテンツ部  */
 .content {
-    width: 700px;
+    width: 800px;
     margin: 50px auto;
 }
 
@@ -62,7 +62,7 @@ textarea {
 
 textarea.opinion {
     display: inline-block;
-    width: 470px;
+    width: 570px;
 }
 
 /*  テキスト入力, email入力  */
@@ -73,22 +73,22 @@ input[type="email"] {
 
 /*  テキスト入力ボックス [氏 と 名]  */
 input[type="text"].name {
-    width: 220px;
+    width: 275px;
 }
 
 /*  名前入力,郵便番号入力以外のテキストボックス 又は email入力ボックス */
 input[type="text"]:not(.name):not(.postcode),
 input[type="email"] {
-    width: 470px;
+    width: 570px;
 }
 
 input[type="text"].postcode {
-    width: 430px;
+    width: 530px;
 }
 
 /*  下の名前  */
 .first-name {
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 /*  性別ブロック  */
@@ -104,5 +104,3 @@ span.postcode {
     vertical-align: top;
     margin-top: 15px;
 }
-
-
