@@ -20,11 +20,20 @@
     <label for="lastName" class="asterisk">お名前</label>
     <div class="inline-block">
       <input type="text" id="lastName" class="name" name="lastname">
-      <span class="example">例）山田</span>
+      @unless($errors->has('lastname'))
+        <span class="example">例）山田</span>
+      @else
+        <span class="example">例）山田&emsp;&emsp;<span class="valid-error">{{ $errors->first('lastname') }}</span></span>
+      @endif
+
     </div>
     <div class="inline-block first-name">
       <input type="text" id="firstName" class="name" name="firstname">
-      <span class="example">例）太郎</span>
+      @unless($errors->has('firstname'))
+        <span class="example">例）太郎</span>
+      @else
+        <span class="example">例）太郎&emsp;&emsp;<span class="valid-error">{{ $errors->first('firstname') }}</span></span>
+      @endif
     </div>
   </div>
 
@@ -38,6 +47,9 @@
         <input type="radio" id="female" name="gender" value="2" />
         <label for="female" class="female">女性</label>
       </div>
+      @if($errors->has('gender'))
+        <span class="valid-error gender-valid-error">{{ $errors->first('gender') }}</span>
+      @endif
     </div>
   </div>
 
@@ -45,8 +57,12 @@
   <div class="input-elm">
     <label for="email" class="asterisk">メールアドレス</label>
     <div class="inline-block">
-      <input type="email" id="email" name="email">
-      <span class="example">例）test@example.com</span>
+      <input type="email" id="email" name="email" maxlength="255">
+      @unless($errors->has('email'))
+        <span class="example">例）test@example.com</span>
+      @else
+        <span class="example">例）test@example.com&emsp;&emsp;<span class="valid-error">{{ $errors->first('email') }}</span></span>
+      @endif
     </div>
   </div>
 
@@ -56,7 +72,11 @@
     <span class="postcode">〒</span>
     <div class="inline-block">
       <input type="text" id="postcode" class="postcode" name="postcode">
-      <span class="example">例）123-4567</span>
+      @unless($errors->has('postcode'))
+        <span class="example">例）123-4567</span>
+      @else
+        <span class="example">例）123-4567&emsp;&emsp;<span class="valid-error">{{ $errors->first('postcode') }}</span></span>
+      @endif
     </div>
   </div>
 
@@ -65,7 +85,11 @@
     <label for="address" class="asterisk">住所</label>
     <div class="inline-block">
       <input type="text" id="address" name="address">
-      <span class="example">例）東京都渋谷区千駄ヶ谷1-2-3</span>
+      @unless($errors->has('address'))
+        <span class="example">例）東京都渋谷区千駄ヶ谷1-2-3</span>
+      @else
+        <span class="example">例）東京都渋谷区千駄ヶ谷1-2-3&emsp;&emsp;<span class="valid-error">{{ $errors->first('address') }}</span></span>
+      @endif
     </div>
   </div>
 
@@ -81,7 +105,10 @@
   <!-- ご意見 -->
   <div class="input-elm">
     <label for="opinion" class="asterisk">ご意見</label>
-    <textarea id="opinion" rows="6" cols="60" class="opinion" name="opinion"></textarea>
+    <textarea id="opinion" rows="6" cols="60" class="opinion" name="opinion" maxlength="120"></textarea>
+    @if($errors->has('opinion'))
+      <span class="valid-error opinion-valid-error">{{ $errors->first('opinion') }}</span>
+    @endif
   </div>
 
   <!-- 確認 -->

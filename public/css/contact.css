@@ -51,6 +51,26 @@ span.example {
     color: #ccc;
     margin-top: 10px;
     margin-left: 15px;
+    margin-right: 10px;
+}
+
+/*  バリデーションエラー表示  */
+span.valid-error {
+    color: red;
+}
+
+/*  性別 バリデーションエラー表示  */
+span.gender-valid-error {
+    display: block;
+    margin-top: 15px;
+    margin-left: -20px;
+}
+
+/*  ご意見 バリデーションエラー表示  */
+span.opinion-valid-error {
+    display: block;
+    margin-top: 15px;
+    margin-left: 200px;
 }
 
 /*  テキスト入力, email入力, テキストエリアボックス  */
