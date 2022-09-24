@@ -43,7 +43,7 @@
 
     <div class="input-elm">
       <!-- メールアドレス -->
-      <label for="email">お名前</label>
+      <label for="email">メールアドレス</label>
       <input type="text" id="email" class="search-text" name="email">
     </div>
 
@@ -53,9 +53,40 @@
     <button>検索</button>
     <a href="" class="block">リセット</a>
   </div>
-
-
+</div>
 </form>
+
+<!--  ページネーション  -->
+
+<!--  問い合わせ内容一覧  -->
+<table>
+  <thead>
+    <tr>
+      <th class="id">ID</th>
+      <th class="name">お名前</th>
+      <th class="gender">性別</th>
+      <th class="email">メールアドレス</th>
+      <th class="opinion">ご意見</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="contact">
+      <td class="id">1</td>
+      <td class="name">山田太郎</td>
+      <td class="gender">男性</td>
+      <td class="email">test@example.com</td>
+      <td class="opinion tooltip">いつもお世話になっております。先日、貴社製品を購入‥
+        <span class="description">
+          いつもお世話になっております。先日、貴社製品を購入しております者です。<br>
+          スッキリわかる日商簿記３級<br>
+          サイレンス鈴鹿
+        </span>
+      </td>
+      <td class="delete"><a href="" class="delete">削除</a></td>
+    </tr>
+  </tbody>
+</table>
 
 
 @endsection
