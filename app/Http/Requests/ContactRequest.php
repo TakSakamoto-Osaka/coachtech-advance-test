@@ -54,6 +54,8 @@ class ContactRequest extends FormRequest
             'email.email'        => 'メールアドレス形式で入力して下さい',
             'email.max'          => '255文字を超えています',
 
+            'postcode.required'  => '※必須項目です',
+
             'address.required'   => '※必須項目です',
             'opinion.required'   => '※必須項目です',
             'opinion.max'        => '120文字を超えています',
