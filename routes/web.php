@@ -19,9 +19,8 @@ use App\Http\Controllers\AdminController;
 Route::prefix('contact')->group( function () {
   Route::get('/',         [ContactController::class, 'get_contact']);   //  お問い合わせページ[GET]
   Route::post('/',        [ContactController::class, 'post_contact']);  //  お問い合わせページ[POST]
-
-  Route::get('/confirm',  [ContactController::class, 'confirm']);     //  内容確認ページ
-  Route::get('/thanks',   [ContactController::class, 'thanks']);      //  Thanksページ
+  Route::get('/confirm',  [ContactController::class, 'confirm']);       //  内容確認ページ
+  Route::get('/thanks',   [ContactController::class, 'thanks']);        //  Thanksページ
 });
 
 //  管理システム関連URL

@@ -19,7 +19,9 @@
   <div class="input-elm">
     <label for="lastName" class="asterisk">お名前</label>
     <div class="inline-block">
-      <input type="text" id="lastName" class="name" name="lastname" value="{{ old('lastname') }}" onblur="onBlur(this)">
+      <input type="text" id="lastName" class="name" name="lastname" onblur="onBlur(this)" 
+      value="@unless(empty($data)) {{$data['lastname']}} @else {{old('lastname')}} @endif" >
+
         <span class="example">例）山田&emsp;&emsp;
           <span id="lastname-valid-error" class="valid-error">
             @if($errors->has('lastname')) {{ $errors->first('lastname') }} @endif
@@ -28,7 +30,9 @@
     </div>
 
     <div class="inline-block first-name">
-      <input type="text" id="firstName" class="name" name="firstname" value="{{ old('firstname') }}" onblur="onBlur(this)">
+      <input type="text" id="firstName" class="name" name="firstname" onblur="onBlur(this)" 
+      value="@unless(empty($data)) {{$data['firstname']}} @else {{old('firstname')}} @endif">
+
         <span class="example">例）太郎&emsp;&emsp;
           <span id="firstname-valid-error" class="valid-error">
             @if($errors->has('firstname')) {{ $errors->first('firstname') }} @endif
@@ -42,10 +46,12 @@
     <label class="asterisk gender">性別</label>
     <div class="gender">
       <div class="gender-radio">
-        <input type="radio" id="male" name="gender" value="1" @if (old('gender') != "2") checked @endif />
+        <input type="radio" id="male" name="gender" value="1" 
+        @unless(empty($data)) @if ($data['gender'] != "2") checked @endif @else @if (old('gender') != "2") checked @endif @endif />
         <label for="male" class="male">男性</label>
 
-        <input type="radio" id="female" name="gender" value="2" @if (old('gender') == "2") checked @endif />
+        <input type="radio" id="female" name="gender" value="2" 
+        @unless(empty($data)) @if ($data['gender'] == "2") checked @endif @else @if (old('gender') == "2") checked @endif @endif />
         <label for="female" class="female">女性</label>
       </div>
       <span id="gender-valid-error" class="valid-error gender-valid-error">
@@ -58,7 +64,8 @@
   <div class="input-elm">
     <label for="email" class="asterisk">メールアドレス</label>
     <div class="inline-block">
-      <input type="email" id="email" name="email" maxlength="255" value="{{ old('email') }}" onblur="onBlur(this)">
+      <input type="email" id="email" name="email" maxlength="255" onblur="onBlur(this)" 
+      value="@unless(empty($data)) {{$data['email']}} @else {{old('email')}} @endif" >
         <span class="example">例）test@example.com&emsp;&emsp;
           <span id="email-valid-error" class="valid-error">
             @if($errors->has('email')) {{ $errors->first('email') }} @endif
@@ -72,7 +79,8 @@
     <label for="postcode" class="asterisk">郵便番号</label>
     <span class="postcode">〒</span>
     <div class="inline-block">
-      <input type="text" id="postcode" class="postcode" name="postcode" value="{{ old('postcode') }}" oninput="inputChange(this)" onblur="onBlur(this)">
+      <input type="text" id="postcode" class="postcode" name="postcode" oninput="inputChange(this)" onblur="onBlur(this)" 
+      value="@unless(empty($data)) {{$data['postcode']}} @else {{old('postcode')}} @endif">
         <span class="example">例）123-4567&emsp;&emsp;
           <span id="postcode-valid-error" class="valid-error">
             @if($errors->has('postcode')) {{ $errors->first('postcode') }} @endif
@@ -85,7 +93,8 @@
   <div class="input-elm">
     <label for="address" class="asterisk">住所</label>
     <div class="inline-block">
-      <input type="text" id="address" name="address" value="{{ old('address') }}" onblur="onBlur(this)">
+      <input type="text" id="address" name="address" onblur="onBlur(this)" 
+      value="@unless(empty($data)) {{$data['address']}} @else {{old('address')}} @endif" >
         <span class="example">例）東京都渋谷区千駄ヶ谷1-2-3&emsp;&emsp;
           <span id="address-valid-error" class="valid-error">
             @if($errors->has('address')) {{ $errors->first('address') }} @endif
@@ -98,7 +107,7 @@
   <div class="input-elm">
     <label for="building">建物名</label>
     <div class="inline-block">
-      <input type="text" id="building" name="building" value="{{ old('building') }}" >
+      <input type="text" id="building" name="building" value="@unless(empty($data)) {{$data['building']}} @else {{old('building')}} @endif"" >
       <span class="example">例）千駄ヶ谷マンション101</span>
     </div>
   </div>
@@ -106,7 +115,7 @@
   <!-- ご意見 -->
   <div class="input-elm">
     <label for="opinion" class="asterisk">ご意見</label>
-    <textarea id="opinion" rows="6" cols="60" class="opinion" name="opinion" maxlength="120" onblur="onBlur(this)">{{ old('opinion') }}</textarea>
+    <textarea id="opinion" rows="6" cols="60" class="opinion" name="opinion" maxlength="120" onblur="onBlur(this)">@unless(empty($data)) {{$data['opinion']}} @else {{old('opinion')}} @endif</textarea>
       <span id="opinion-valid-error" class="valid-error opinion-valid-error">
         @if($errors->has('opinion')) {{ $errors->first('opinion') }} @endif
       </span>
@@ -121,6 +130,41 @@
 
 <!-- JavaScript -->
 @section('script')
+
+//
+//  ページロード時のイベント
+//
+window.onload = function() {
+  //  不要な前後の空白削除
+
+  //  氏
+  var val = document.getElementById("lastName").value;
+  document.getElementById("lastName").value = val.trim();
+  
+  //  名
+  val = document.getElementById("firstName").value;
+  document.getElementById("firstName").value = val.trim();
+
+  //  メールアドレス
+  val = document.getElementById("email").value;
+  document.getElementById("email").value = val.trim();
+
+  //  郵便番号
+  val = document.getElementById("postcode").value;
+  document.getElementById("postcode").value = val.trim();
+
+  //  住所
+  val = document.getElementById("address").value;
+  document.getElementById("address").value = val.trim();
+
+  //  建物名
+  val = document.getElementById("building").value;
+  document.getElementById("building").value = val.trim();
+
+  //  ご意見
+  val = document.getElementById("opinion").value;
+  document.getElementById("opinion").value = val.trim();
+}
 
 //
 //  入力フォーカスロスト時のイベント

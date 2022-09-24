@@ -10,38 +10,60 @@ use App\Http\Requests\ContactRequest;
  */
 class ContactController extends Controller
 {    
+    
     /**
-     * contact
+     * get_contact
      *
+     * @param  mixed $request
      * @return void
      */
     public function get_contact( Request $request )
     {
-        return view('contact');
+        $data = null;
+
+        if ( $request->session()->exists('data') == true ) {
+            $data = $request->session()->get('data');
+            $request->session()->forget('data');
+        }
+
+        return view('contact', ['data'=>$data]);
     }
 
     /**
-     * send
+     * post_contact
      *
      * @param  mixed $request
      * @return void
      */
     public function post_contact( ContactRequest $request )
     {
-        $form = $request->all();        //  フォームプロパティ全て取得
-        unset($form['_token']);         //  _token削除
+        $form = $request->all();                    //  フォームプロパティ全て取得
 
-        return redirect('contact/confirm')->with(['form'=>$form]);
+        $data = [
+            'lastname'  => $form['lastname'],
+            'firstname' => $form['firstname'],
+            'gender'    => $form['gender'],
+            'email'     => $form['email'],
+            'postcode'  => $form['postcode'],
+            'address'   => $form['address'],
+            'building'  => $form['building'],
+            'opinion'   => $form['opinion']
+        ];
+
+        $request->session()->put('data', $data);    //  セッションに保存
+
+        return redirect('contact/confirm');
     }
-
+    
     /**
      * confirm
      *
+     * @param  mixed $request
      * @return void
      */
-    public function confirm()
+    public function confirm(Request $request)
     {
-        $data = session('form');
+        $data = $request->session()->get('data');
 
         return view('confirm', ['data'=>$data]);
     }

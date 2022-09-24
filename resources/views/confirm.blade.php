@@ -65,7 +65,7 @@
   <!-- 送信 -->
   <div class="btn-wrap btn-contact">
     <button>送信</button>
-    <a href="" class="block">修正する</a>
+    <a href="/contact" class="block">修正する</a>
   </div>
 
   <!-- 修正する -->
