@@ -20,20 +20,20 @@
     <label for="lastName" class="asterisk">お名前</label>
     <div class="inline-block">
       <input type="text" id="lastName" class="name" name="lastname" value={{ old('lastname') }}>
-      @unless($errors->has('lastname'))
-        <span class="example">例）山田</span>
-      @else
-        <span class="example">例）山田&emsp;&emsp;<span class="valid-error">{{ $errors->first('lastname') }}</span></span>
-      @endif
-
+        <span class="example">例）山田&emsp;&emsp;
+          <span id="lastname-valid-error" class="valid-error">
+            @if($errors->has('lastname')) {{ $errors->first('lastname') }} @endif
+          </span>
+        </span>
     </div>
+
     <div class="inline-block first-name">
       <input type="text" id="firstName" class="name" name="firstname" value={{ old('firstname') }}>
-      @unless($errors->has('firstname'))
-        <span class="example">例）太郎</span>
-      @else
-        <span class="example">例）太郎&emsp;&emsp;<span class="valid-error">{{ $errors->first('firstname') }}</span></span>
-      @endif
+        <span class="example">例）太郎&emsp;&emsp;
+          <span id="firstname-valid-error" class="valid-error">
+            @if($errors->has('firstname')) {{ $errors->first('firstname') }} @endif
+          </span>
+        </span>
     </div>
   </div>
 
@@ -48,9 +48,9 @@
         <input type="radio" id="female" name="gender" value="2" @if (old('gender') == "2") checked @endif />
         <label for="female" class="female">女性</label>
       </div>
-      @if($errors->has('gender'))
-        <span class="valid-error gender-valid-error">{{ $errors->first('gender') }}</span>
-      @endif
+      <span id="gender-valid-error" class="valid-error gender-valid-error">
+        @if($errors->has('gender')) {{ $errors->first('gender') }} @endif
+      </span>
     </div>
   </div>
 
@@ -59,11 +59,11 @@
     <label for="email" class="asterisk">メールアドレス</label>
     <div class="inline-block">
       <input type="email" id="email" name="email" maxlength="255" value={{ old('email') }}>
-      @unless($errors->has('email'))
-        <span class="example">例）test@example.com</span>
-      @else
-        <span class="example">例）test@example.com&emsp;&emsp;<span class="valid-error">{{ $errors->first('email') }}</span></span>
-      @endif
+        <span class="example">例）test@example.com&emsp;&emsp;
+          <span id="email-valid-error" class="valid-error">
+            @if($errors->has('email')) {{ $errors->first('email') }} @endif
+          </span>
+        </span>
     </div>
   </div>
 
@@ -73,11 +73,11 @@
     <span class="postcode">〒</span>
     <div class="inline-block">
       <input type="text" id="postcode" class="postcode" name="postcode" value={{ old('postcode') }}>
-      @unless($errors->has('postcode'))
-        <span class="example">例）123-4567</span>
-      @else
-        <span class="example">例）123-4567&emsp;&emsp;<span class="valid-error">{{ $errors->first('postcode') }}</span></span>
-      @endif
+        <span class="example">例）123-4567&emsp;&emsp;
+          <span id="postcode-valid-error" class="valid-error">
+            @if($errors->has('postcode')) {{ $errors->first('postcode') }} @endif
+          </span>
+        </span>
     </div>
   </div>
 
@@ -86,11 +86,11 @@
     <label for="address" class="asterisk">住所</label>
     <div class="inline-block">
       <input type="text" id="address" name="address" value={{ old('address') }}>
-      @unless($errors->has('address'))
-        <span class="example">例）東京都渋谷区千駄ヶ谷1-2-3</span>
-      @else
-        <span class="example">例）東京都渋谷区千駄ヶ谷1-2-3&emsp;&emsp;<span class="valid-error">{{ $errors->first('address') }}</span></span>
-      @endif
+        <span class="example">例）東京都渋谷区千駄ヶ谷1-2-3&emsp;&emsp;
+          <span id=""address-valid-error class="valid-error">
+            @if($errors->has('address')) {{ $errors->first('address') }} @endif
+          </span>
+        </span>
     </div>
   </div>
 
@@ -107,9 +107,9 @@
   <div class="input-elm">
     <label for="opinion" class="asterisk">ご意見</label>
     <textarea id="opinion" rows="6" cols="60" class="opinion" name="opinion" maxlength="120">{{ old('opinion') }}</textarea>
-    @if($errors->has('opinion'))
-      <span class="valid-error opinion-valid-error">{{ $errors->first('opinion') }}</span>
-    @endif
+      <span id="opinion-valid-error" class="valid-error opinion-valid-error">
+        @if($errors->has('opinion')) {{ $errors->first('opinion') }} @endif
+      </span>
   </div>
 
   <!-- 確認 -->
