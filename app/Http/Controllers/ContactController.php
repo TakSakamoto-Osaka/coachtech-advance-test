@@ -26,23 +26,11 @@ class ContactController extends Controller
      * @param  mixed $request
      * @return void
      */
-    public function post_contact( Request $request )
+    public function post_contact( ContactRequest $request )
     {
         return redirect('contact/confirm');
     }
 
-
-    /**
-     * send
-     *
-     * @param  mixed $request
-     * @return void
-     */
-    public function send()
-    {
-        return view('confirm');
-    }
-    
     /**
      * confirm
      *
