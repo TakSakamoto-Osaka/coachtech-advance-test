@@ -1,0 +1,194 @@
+/*
+  管理システムページ CSS
+*/
+
+h1.admin {
+    width: 1400px;
+    margin: 30px auto;
+}
+
+/*  コンテンツ部  */
+form.admin {
+    width: 1400px;
+    height: 340px;
+    margin: 0 auto;
+    border: 1px solid #000;
+}
+
+.search-condition {
+    width: 1300px;
+    height: 340px;
+    margin: 0px auto 20px;
+}
+
+.search-text {
+    margin-left: -60px;
+    width: 300px;
+    height: 40px;
+}
+
+/*  お名前  */
+label#search-name {
+    margin-top: 40px;
+}
+
+input.search-fullname {
+    margin-top: 25px;
+}
+
+/*  性別ラベル  */
+label.gender {
+    margin-top: 40px;
+    margin-left: 50px;
+}
+
+.rdb-gender-offset {
+    margin-left: -80px;
+}
+
+/*  最初以外の入力要素 又は 性別入力  */
+.input-elm:not(:first-of-type) {
+    margin-top: 25px;
+}
+
+.range {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+input[type="date"] {
+    width: 300px;
+    height: 40px;
+
+    position: relative;
+}
+
+input[type="date"]:first-of-type {
+    margin-left: -60px;
+}
+
+input[type="date"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type="date"]::-webkit-clear-button {
+    -webkit-appearance: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+/*  検索ボタン  */
+.btn-search {
+    margin-top: 40px;
+}
+
+/*  
+  問い合わせ一覧テーブル
+*/
+
+/*  テーブル全体  */
+table {
+    width: 1400px;
+    margin: 100px auto 0;
+}
+
+/*  テーブルヘッダー  */
+thead {
+    height: 50px;
+    border-bottom: 1px solid #000;
+}
+
+/*  見出し列  */
+th {
+    vertical-align: middle;
+}
+
+/*  ID 見出し列 */
+th.id {
+    width: 100px;
+}
+
+/*  お名前 見出し列 */
+th.name {
+    width: 150px;
+}
+
+/*  性別 見出し列 */
+th.gender {
+    width: 150px;
+}
+
+/*  メールアドレス 見出し列 */
+th.email {
+    width: 300px;
+}
+
+/*  ご意見 見出し列  */
+th.opinion {
+    text-align: left;
+}
+
+/*  削除 テーブルセル要素 */
+th.delete {
+    width: 200px;
+}
+
+/*  全てのテーブルセル要素  */
+td {
+    height: 50px;
+    vertical-align: middle;
+}
+
+/*  ご意見以外のテーブルセル要素  */
+td:not(.opinion) {
+    text-align: center;
+}
+
+/*  削除テーブルセル内のアンカー  */
+td a {
+    text-decoration: none;
+    background: #222;
+    color: #fff;
+    padding: 5px 20px 5px;
+    border-radius: 5px;
+    border: 1px solid #222;
+}
+
+/*  ご意見セルのツールチップ設定  */
+.tooltip {
+    /* 補足説明するテキストのスタイル */
+    position: relative;
+    cursor: pointer;
+    padding: 0 5px;
+}
+
+.description {
+    width: 500px; /* 横幅 */
+    position: absolute;
+    left: 50%;
+    bottom: 80%; /* Y軸の位置 */
+    transform: translateX(-100%);
+    margin-bottom: 8px; /* テキストとの距離 */
+    padding: 8px;
+    border-radius: 10px; /* 角の丸み */
+    background-color: khaki;
+    font-size: 1em;
+    color: #444;
+    text-align: left;
+    visibility: hidden; /* ツールチップを非表示に */
+    opacity: 0; /* 不透明度を0％に */
+    z-index: 1;
+    transition: 0.5s all; /* マウスオーバー時のアニメーション速度 */
+}
+
+.tooltip:hover .description {
+    /* マウスオーバー時のスタイル */
+    left: 100%; /* X軸の位置 */
+    visibility: visible; /* ツールチップを表示 */
+    opacity: 1; /* 不透明度を100％に */
+}

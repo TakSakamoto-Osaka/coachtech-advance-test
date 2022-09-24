@@ -1,0 +1,146 @@
+/*
+  お問い合わせ関連ページ CSS
+*/
+
+h1.content,
+h1.confirm {
+    width: 800px;
+    margin: 30px auto;
+}
+
+/*  コンテンツ部  */
+div.content,
+form.content {
+    width: 800px;
+    margin: 50px auto;
+}
+
+/*  最初以外の入力要素 又は 性別入力  */
+.input-elm:not(:first-of-type),
+.input-elm-gender {
+    margin-top: 40px;
+}
+
+.input-elm-gender + .input-elm {
+    margin-top: 60px;
+}
+
+.confirm-elm:not(:first-of-type) {
+    margin-top: 60px;
+}
+
+/*  性別ラベル  */
+label.gender {
+    margin-top: 15px;
+}
+
+/*  内容確認画面のラベル : margin-top設定を上書き  */
+label.confirm {
+    margin-top: 0;
+}
+
+/*  ラベルの必須入力米印  */
+.asterisk::after {
+    content: " ※";
+    color: red;
+}
+
+/*  入力例  */
+span.example {
+    display: block;
+    color: #ccc;
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-right: 10px;
+}
+
+/*  バリデーションエラー表示  */
+span.valid-error {
+    color: red;
+}
+
+/*  性別 バリデーションエラー表示  */
+span.gender-valid-error {
+    display: block;
+    margin-top: 15px;
+    margin-left: -20px;
+}
+
+/*  ご意見 バリデーションエラー表示  */
+span.opinion-valid-error {
+    display: block;
+    margin-top: 15px;
+    margin-left: 200px;
+}
+
+/*  テキスト入力, email入力, テキストエリアボックス  */
+input[type="text"],
+input[type="email"],
+textarea {
+    border-radius: 5px;
+    border: 1px solid #000;
+}
+
+textarea.opinion {
+    display: inline-block;
+    width: 570px;
+}
+
+/*  テキスト入力, email入力  */
+input[type="text"],
+input[type="email"] {
+    height: 40px;
+}
+
+/*  テキスト入力ボックス [氏 と 名]  */
+input[type="text"].name {
+    width: 275px;
+}
+
+/*  名前入力,郵便番号入力以外のテキストボックス 又は email入力ボックス */
+input[type="text"]:not(.name):not(.postcode),
+input[type="email"] {
+    width: 570px;
+}
+
+input[type="text"].postcode {
+    width: 530px;
+}
+
+/*  下の名前  */
+.first-name {
+    margin-left: 10px;
+}
+
+/*  性別ブロック  */
+div.gender {
+    margin-left: 30px;
+}
+
+/*  郵便番号  */
+span.postcode {
+    display: inline-block;
+    width: 40px;
+    text-align: center;
+    vertical-align: top;
+    margin-top: 15px;
+}
+
+/*  内容確認画面のご意見  */
+.confirm-opinion {
+    display: inline-block;
+    width: 500px;
+    line-height: 150%;
+}
+
+/*  thanks表示  */
+.thanks {
+    text-align: center;
+    margin-top: 400px;
+    margin-bottom: 70px;
+}
+
+/*  ボタン  */
+.btn-contact {
+    margin-top: 40px;
+}

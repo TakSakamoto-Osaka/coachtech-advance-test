@@ -1,0 +1,108 @@
+/*
+    画面共通CSS
+*/
+
+/*  見出し  */
+h1 {
+    margin-top: 20px;
+    color: #000;
+    font-size: x-large;
+    text-align: center;
+}
+
+div.inline-block {
+    display: inline-block;
+}
+
+/*  性別選択ブロック  */
+div.gender {
+    display: inline-block;
+}
+
+/*  ラベル表示  */
+label {
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+}
+
+/*  男性,女性以外のラベル表示  */
+label:not(.all-gender):not(.male):not(.female) {
+    width: 180px;
+}
+
+/*  男性,女性 ラベル表示  */
+label.all-gender,
+label.male,
+label.female {
+    width: 100px;
+}
+
+/*  性別以外のラベル  */
+label:not(.gender):not(.all-gender):not(.male):not(.female):not(.confirm) {
+    margin-top: 15px;
+}
+
+/*  性別選択ボタン (標準ボタンに比べ中の黒丸が小さい)  */
+.gender-radio label {
+    padding: 0 0 0 24px; /* ラベルの位置 */
+    font-size: 16px;
+    line-height: 40px; /* ボタンのサイズに合わせる */
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+}
+.gender-radio label:before {
+    content: "";
+    width: 40px; /* ボタンの横幅 */
+    height: 40px; /* ボタンの縦幅 */
+    position: absolute;
+    top: 0;
+    left: -30px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 1px solid #000;
+}
+.gender-radio input[type="radio"] {
+    /* 透明度0 */
+    filter: alpha(opacity=0);
+    -moz-opacity: 0;
+    opacity: 0;
+    /* ブラウザのデフォルトのスタイルを削除 */
+    -webkit-appearance: none;
+    appearance: none;
+    /* レイアウトから無視 */
+    position: absolute;
+}
+.gender-radio input[type="radio"]:checked + label:after {
+    content: "";
+    width: 12px; /* マークの横幅 */
+    height: 12px; /* マークの縦幅 */
+    position: absolute;
+    top: 14px;
+    left: -16px;
+    background-color: #000;
+    border-radius: 50%;
+}
+
+/*  ボタン  */
+.btn-wrap {
+    text-align: center;
+}
+
+button {
+    width: 150px;
+    height: 40px;
+    background: #222;
+    color: #fff;
+    font-size: medium;
+    border-radius: 5px;
+    border: 1px solid #222;
+}
+
+/*  アンカー  */
+a.block {
+    display: block;
+    margin-top: 10px;
+    color: #000;
+}
