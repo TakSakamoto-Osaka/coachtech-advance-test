@@ -64,7 +64,7 @@
 
   <!-- 送信 -->
   <div class="btn-wrap btn-contact">
-    <button>送信</button>
+    <button onclick="location.href='/contact/thanks'">送信</button>
     <a href="/contact" class="block">修正する</a>
   </div>
 
