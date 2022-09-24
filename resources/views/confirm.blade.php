@@ -16,47 +16,49 @@
   <!-- お名前 -->
   <div class="confirm-elm">
     <label class="confirm">お名前</label>
-    <span>山田　太郎</span>
+    <span>{{$data['lastname']}}{{$data['firstname']}}</span>
   </div>
 
   <!-- 性別 -->
   <div class="confirm-elm">
     <label class="confirm">性別</label>
-    <span>男性</span>
+    @if( $data['gender'] == "1" )
+      <span>男性</span>
+    @endif
+    @if( $data['gender'] == "2" )
+      <span>女性</span>
+    @endif
   </div>
 
   <!-- メールアドレス -->
   <div class="confirm-elm">
     <label class="confirm">メールアドレス</label>
-    <span>test@example.com</span>
+    <span>{{$data['email']}}</span>
   </div>
 
   <!-- 郵便番号 -->
   <div class="confirm-elm">
     <label class="confirm">郵便番号</label>
-    <span>123-4567</span>
+    <span>{{$data['postcode']}}</span>
   </div>
 
   <!-- 住所 -->
   <div class="confirm-elm">
     <label class="confirm">住所</label>
-    <span>東京都渋谷区千駄ヶ谷1-2-3</span>
+    <span>{{$data['address']}}</span>
   </div>
 
   <!-- 建物名 -->
   <div class="confirm-elm">
     <label class="confirm">建物名</label>
-    <span>千駄ヶ谷マンション101</span>
+    <span>{{$data['building']}}</span>
   </div>
 
   <!-- ご意見 -->
   <div class="confirm-elm">
     <label class="confirm">ご意見</label>
     <p class="confirm-opinion">
-      いつもお世話になっております。先日、貴社製品を購入させていただ
-      きました。この度、不具合が生じ、説明書に沿って操作を進めていま
-      したが上手く行きませんでした。どのように直せば良いかご教授いた
-      だきたいです。
+      {!! nl2br(e($data['opinion'])) !!}
     </p>
   </div>
 

@@ -15,7 +15,7 @@ class ContactController extends Controller
      *
      * @return void
      */
-    public function get_contact( Request $request)
+    public function get_contact( Request $request )
     {
         return view('contact');
     }
@@ -28,7 +28,10 @@ class ContactController extends Controller
      */
     public function post_contact( ContactRequest $request )
     {
-        return redirect('contact/confirm');
+        $form = $request->all();        //  フォームプロパティ全て取得
+        unset($form['_token']);         //  _token削除
+
+        return redirect('contact/confirm')->with(['form'=>$form]);
     }
 
     /**
@@ -38,7 +41,9 @@ class ContactController extends Controller
      */
     public function confirm()
     {
-        return view('confirm');
+        $data = session('form');
+
+        return view('confirm', ['data'=>$data]);
     }
     
     /**
