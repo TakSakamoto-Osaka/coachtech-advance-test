@@ -12,7 +12,9 @@
 
 <!-- ページコンテンツ部 -->
 @section('content')
-<form action="" method="post" class="content">
+<form action="{{ url('/contact') }}" method="post" class="content">
+  @csrf
+
   <!-- お名前 -->
   <div class="input-elm">
     <label for="lastName" class="asterisk">お名前</label>
@@ -84,7 +86,7 @@
 
   <!-- 確認 -->
   <div class="btn-wrap btn-contact">
-    <button>確認</button>
+    <button type="submit">確認</button>
   </div>
 </form>
 @endsection

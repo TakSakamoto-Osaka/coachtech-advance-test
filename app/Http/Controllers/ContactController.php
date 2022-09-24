@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ContactRequest;
 
 /**
  * ContactController
@@ -14,10 +15,32 @@ class ContactController extends Controller
      *
      * @return void
      */
-    public function contact()
+    public function get_contact( Request $request)
     {
-
         return view('contact');
+    }
+
+    /**
+     * send
+     *
+     * @param  mixed $request
+     * @return void
+     */
+    public function post_contact( Request $request )
+    {
+        return redirect('contact/confirm');
+    }
+
+
+    /**
+     * send
+     *
+     * @param  mixed $request
+     * @return void
+     */
+    public function send()
+    {
+        return view('confirm');
     }
     
     /**
@@ -27,7 +50,6 @@ class ContactController extends Controller
      */
     public function confirm()
     {
-
         return view('confirm');
     }
     
