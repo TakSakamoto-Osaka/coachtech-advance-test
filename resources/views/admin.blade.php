@@ -80,7 +80,6 @@
         <span class="description">
           いつもお世話になっております。先日、貴社製品を購入しております者です。<br>
           スッキリわかる日商簿記３級<br>
-          サイレンス鈴鹿
         </span>
       </td>
       <td class="delete"><a href="" class="delete">削除</a></td>
