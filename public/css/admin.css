@@ -203,8 +203,47 @@ td a {
     opacity: 1; /* 不透明度を100％に */
 }
 
-svg.w-5.h-5 {
-    /*paginateメソッドの矢印の大きさ調整のために追加*/
-    width: 30px;
-    height: 30px;
+/*  ページネーション    */
+nav[aria-label="Pagination Navigation"] {
+    width: 1400px;
+    margin: 30px auto 0;
+}
+
+.pn-count,
+.pn-link {
+    display: inline-block;
+}
+
+.pn-count {
+    width: 200px;
+    margin: 0 480px 0 0;
+    text-align: left;
+}
+
+.pn-link {
+    width: 200px;
+    margin: 0 0 0 430px;
+    text-align: right;
+}
+
+nav a {
+    display: inline-block;
+    text-decoration: none;
+    border: 0.5px solid #ccc;
+    font-size: larger;
+    padding: 3px 5px;
+}
+
+#sp-cur-page {
+    display: inline-block;
+    background: #000;
+    color: #fff;
+    font-size: larger;
+    padding: 3px 5px;
+}
+
+#sp-first,
+#sp-last {
+    font-size: larger;
+    padding: 3px 5px;
 }

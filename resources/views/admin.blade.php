@@ -73,7 +73,7 @@
     </tr>
   </thead>
   <tbody>
-    {{$contacts->links()}}
+    {{$contacts->links('vendor.pagination.custom')}}
 
     @foreach ( $contacts as $contact )
     <tr class="contact">
