@@ -12,22 +12,24 @@
 
 <!-- ページコンテンツ部 -->
 @section('content')
-<form action="" method="post" class="admin">
+<form action="/admin/search?page={{$page}}" method="post" class="admin">
+  @csrf
+
   <div class="search-condition">
     <div class="input-elm">
       <!-- お名前 -->
       <label for="fullname" id="search-name">お名前</label>
-      <input type="text" id="fullname" class="search-text search-fullname" name="fullname">
+      <input type="text" id="fullname" class="search-text search-fullname" name="fullname" value="{{$search['fullname']}}">
 
       <!-- 性別 -->
       <label class="gender">性別</label>
       <div class="gender">
         <div class="gender-radio rdb-gender-offset">
-          <input type="radio" id="all" name="gender" value="0" checked />
+          <input type="radio" id="all" name="gender" value="0" @if ($search['gender'] == 0 ) checked @endif />
           <label for="all" class="all-gender">全て</label>
-          <input type="radio" id="male" name="gender" value="1" />
+          <input type="radio" id="male" name="gender" value="1" @if ($search['gender'] == 1 ) checked @endif />
           <label for="male" class="male">男性</label>
-          <input type="radio" id="female" name="gender" value="2" />
+          <input type="radio" id="female" name="gender" value="2" @if ($search['gender'] == 2 ) checked @endif />
           <label for="female" class="female">女性</label>
         </div>
       </div>
@@ -36,22 +38,22 @@
     <!-- 登録日 -->
     <div class="input-elm">
       <label for="create-at-start" class="create-at">登録日</label>
-      <input type="date" id="create-at-start" onfocus="onFocus(this)" onblur="onBlur(this)" name="create-at-start">
+      <input type="date" id="create-at-start" onfocus="onFocus(this)" onblur="onBlur(this)" name="create-at-start" value="{{$search['create-at-start']}}">
       <span class="range">〜</span>
-      <input type="date" id="create-at-end"  onfocus="onFocus(this)" onblur="onBlur(this)" name="create-at-end">
+      <input type="date" id="create-at-end"  onfocus="onFocus(this)" onblur="onBlur(this)" name="create-at-end" value="{{$search['create-at-end']}}">
     </div>
 
     <div class="input-elm">
       <!-- メールアドレス -->
       <label for="email">メールアドレス</label>
-      <input type="text" id="email" class="search-text" name="email">
+      <input type="text" id="email" class="search-text" name="email" value="{{$search['email']}}">
     </div>
 
 
   <!-- 検索 -->
   <div class="btn-wrap btn-search">
     <button>検索</button>
-    <a href="" class="block">リセット</a>
+    <a href="/admin/reset?page={{$page}}" class="block">リセット</a>
   </div>
 </div>
 </form>
@@ -71,19 +73,29 @@
     </tr>
   </thead>
   <tbody>
+    {{$contacts->links('vendor.pagination.custom')}}
+
+    @foreach ( $contacts as $contact )
     <tr class="contact">
-      <td class="id">1</td>
-      <td class="name">山田太郎</td>
+      <td class="id">{{$contact->id}}</td>
+      <td class="name">{{$contact->fullname}}</td>
+      @if ( $contact->gender == 1 )
       <td class="gender">男性</td>
-      <td class="email">test@example.com</td>
-      <td class="opinion tooltip">いつもお世話になっております。先日、貴社製品を購入‥
+      @endif
+      
+      @if ( $contact->gender == 2 )
+      <td class="gender">女性</td>
+      @endif
+
+      <td class="email">{{$contact->email}}</td>
+      <td class="opinion tooltip">{{mb_substr($contact->opinion,0,25)}}@if (mb_strlen($contact->opinion) >= 25)...@endif
         <span class="description">
-          いつもお世話になっております。先日、貴社製品を購入しております者です。<br>
-          スッキリわかる日商簿記３級<br>
+          {!! nl2br(e($contact->opinion)) !!}
         </span>
       </td>
-      <td class="delete"><a href="" class="delete">削除</a></td>
+      <td class="delete"><a href="/admin/delete?id={{$contact->id}}&page={{$page}}" class="delete">削除</a></td>
     </tr>
+    @endforeach
   </tbody>
 </table>
 
@@ -101,7 +113,11 @@ window.onload = function() {
   const qs = document.querySelectorAll('input[type="date"]');
 
   qs.forEach(function(element){
-    element.style.color = 'transparent';
+    if ( element.value == "" ) {      //  日にちが指定されていない場合
+      element.style.color = 'transparent';
+    } else {
+      element.style.color = 'black';
+    }
   });
 }
 

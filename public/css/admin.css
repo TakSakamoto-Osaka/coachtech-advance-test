@@ -88,7 +88,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 /*  
-  問い合わせ一覧テーブル
+    問い合わせ一覧テーブル
 */
 
 /*  テーブル全体  */
@@ -108,19 +108,24 @@ th {
     vertical-align: middle;
 }
 
+/*  ID以外の見出し列  */
+th:not(.id) {
+    text-align: left;
+}
+
 /*  ID 見出し列 */
 th.id {
-    width: 100px;
+    width: 150px;
 }
 
 /*  お名前 見出し列 */
 th.name {
-    width: 150px;
+    width: 250px;
 }
 
 /*  性別 見出し列 */
 th.gender {
-    width: 150px;
+    width: 100px;
 }
 
 /*  メールアドレス 見出し列 */
@@ -144,8 +149,13 @@ td {
     vertical-align: middle;
 }
 
-/*  ご意見以外のテーブルセル要素  */
-td:not(.opinion) {
+/*  ID以外のテーブルセル要素  */
+td:not(.id) {
+    text-align: left;
+}
+
+/*  ID テーブルセル要素  */
+td.id {
     text-align: center;
 }
 
@@ -183,7 +193,7 @@ td a {
     visibility: hidden; /* ツールチップを非表示に */
     opacity: 0; /* 不透明度を0％に */
     z-index: 1;
-    transition: 0.5s all; /* マウスオーバー時のアニメーション速度 */
+    transition: 0s all; /* マウスオーバー時のアニメーション速度 */
 }
 
 .tooltip:hover .description {
@@ -191,4 +201,51 @@ td a {
     left: 100%; /* X軸の位置 */
     visibility: visible; /* ツールチップを表示 */
     opacity: 1; /* 不透明度を100％に */
+}
+
+/*  ページネーション    */
+nav[aria-label="Pagination Navigation"] {
+    width: 1400px;
+    margin: 30px auto 0;
+}
+
+#pn-div {
+    display: flex;
+    justify-content: space-between;
+    width: 1400px;
+}
+
+.pn-count,
+.pn-link {
+    display: inline-block;
+}
+
+.pn-count {
+    text-align: left;
+}
+
+.pn-link {
+    text-align: right;
+}
+
+nav a {
+    display: inline-block;
+    text-decoration: none;
+    border: 0.5px solid #ccc;
+    font-size: larger;
+    padding: 3px 5px;
+}
+
+#sp-cur-page {
+    display: inline-block;
+    background: #000;
+    color: #fff;
+    font-size: large;
+    padding: 3px 5px;
+}
+
+#sp-first,
+#sp-last {
+    font-size: large;
+    padding: 3px 5px;
 }
