@@ -26,6 +26,7 @@ Route::prefix('contact')->group( function () {
 //  管理システム関連URL
 Route::prefix('admin')->group( function () {
   Route::get('/',         [AdminController::class, 'admin']);         //  管理システムページ
+  Route::post('/search',  [AdminController::class, 'search']);        //  検索
   Route::get('/reset',    [AdminController::class, 'reset']);         //  リセット
   Route::get('/delete',   [AdminController::class, 'delete']);        //  削除
 });
