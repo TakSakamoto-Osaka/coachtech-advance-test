@@ -209,20 +209,22 @@ nav[aria-label="Pagination Navigation"] {
     margin: 30px auto 0;
 }
 
+#pn-div {
+    display: flex;
+    justify-content: space-between;
+    width: 1400px;
+}
+
 .pn-count,
 .pn-link {
     display: inline-block;
 }
 
 .pn-count {
-    width: 200px;
-    margin: 0 480px 0 0;
     text-align: left;
 }
 
 .pn-link {
-    width: 200px;
-    margin: 0 0 0 430px;
     text-align: right;
 }
 
@@ -238,12 +240,12 @@ nav a {
     display: inline-block;
     background: #000;
     color: #fff;
-    font-size: larger;
+    font-size: large;
     padding: 3px 5px;
 }
 
 #sp-first,
 #sp-last {
-    font-size: larger;
+    font-size: large;
     padding: 3px 5px;
 }
